@@ -30,6 +30,7 @@ describe("Question routes", () => {
             question: "What is Node.js?",
             options: ["Runtime", "Framework", "Library"],
             quizId,
+            type: "SINGLE",
             rightAnswer: "Runtime"
         })
 

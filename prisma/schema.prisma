@@ -13,6 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TYPE {
+SINGLE
+MULTIPLE
+}
+
 model Quiz {
   id            String      @id @default(uuid())
   title         String
@@ -24,6 +29,7 @@ model Quiz {
 model Question {
   id            String   @id @default(uuid())
   text          String
+  type          TYPE     @default(SINGLE)
   quiz          Quiz     @relation(fields: [quizId], references: [id])
   quizId        String
   options       Option[]
