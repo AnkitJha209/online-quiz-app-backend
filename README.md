@@ -92,6 +92,7 @@ Base path: `/api/v1`
 | Method | Endpoint          | Body / Query         | Responses                  |
 |--------|-------------------|----------------------|----------------------------|
 | POST   | /quiz/create-quiz | { title: string }    | 201: success; 400, 409: errors |
+| GET    | /quiz/get-all-quiz|                      | 200: success; 500: error   |
 
 
 Example:
