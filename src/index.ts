@@ -6,7 +6,7 @@ import { questionRoutes } from './routes/question.routes';
 
 dotenv.config()
 
-const app : Application = express();
+export const app : Application = express();
 const port = process.env.PORT || 4000;
 
 
@@ -24,6 +24,8 @@ app.get('/health-check', (req: Request, res: Response) => {
 app.use('/api/v1/quiz', quizRoutes)
 app.use('/api/v1/questions', questionRoutes)
 
-app.listen(port, () => {
-    console.log(`Server is running on PORT: ${port}`)
-})
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => {
+    console.log(`Server is running on PORT: ${port}`);
+  });
+}

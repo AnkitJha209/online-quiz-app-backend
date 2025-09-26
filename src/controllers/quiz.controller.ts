@@ -49,7 +49,7 @@ export const getAllQuizes = async (req: Request, res: Response) => {
     try{
         const allQuizes = await client.quiz.findMany()
         res.status(200).json({
-            success: false,
+            success: true,
             message: "All quizes fetched successfully",
             quizes: allQuizes
         })
