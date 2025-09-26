@@ -41,6 +41,7 @@ export const createQuiz = async (req: Request, res: Response) => {
             success: false,
             message: "Internal server error"
         })
+        return
     }
 }
 

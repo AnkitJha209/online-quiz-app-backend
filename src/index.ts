@@ -1,7 +1,8 @@
 import express, { Application, Request, Response, urlencoded } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { PrismaClient } from './generated/prisma';
+import { quizRoutes } from './routes/quiz.routes';
+import { questionRoutes } from './routes/question.routes';
 
 dotenv.config()
 
@@ -19,6 +20,9 @@ app.get('/health-check', (req: Request, res: Response) => {
         message: "All OK"
     })
 })
+
+app.use('/api/v1/quiz', quizRoutes)
+app.use('/api/v1/questions', questionRoutes)
 
 app.listen(port, () => {
     console.log(`Server is running on PORT: ${port}`)
